@@ -5796,7 +5796,9 @@ var LinkInput = function (_Component) {
       _axios2.default.post('/shorten', { link: _this.state.link }).then(function (res) {
         console.log(res);
         var resLength = res.data.length;
-        self.setState({ display: 'localhost:3000/' + res.data[resLength - 1].tag }, function () {
+        self.setState(
+        // { display: 'localhost:3000/' + res.data[resLength - 1].tag },
+        { display: 'linkoshrink.herokuapp.com/' + res.data[resLength - 1].tag }, function () {
           console.log('display', self.state.display);
         });
       }).catch(function (err) {
