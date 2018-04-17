@@ -27,7 +27,7 @@ class App extends React.Component {
             <div className="content-container">
               <Switch>
                 <Route path="/" exact render={({ props, history }) => <LinkInput {...props} history={history} />} />
-                <Route path="/:*" exact render={({ props, history }) => <Test {...props} history={history} />} />
+                <Route path="/*" render={({ props, history }) => <Test {...props} history={history} />} />
               </Switch>
             </div>
           </Layout>

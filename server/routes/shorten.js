@@ -6,8 +6,9 @@ const uniqid = require('uniqid')
 
 router.post('/shorten', (req, res, next) => {
   console.log('posting links', req.body)
-  const {link, protocol} = req.body
-  const fullLink = protocol + link
+  // const {link, protocol} = req.body
+  const { link } = req.body
+  // const fullLink = protocol + link
   const tag = uniqid.time()
   console.log('url', link)
   // pool.query('SELECT * FROM links ORDER BY id ASC', (err, fromdb) => {
@@ -18,7 +19,7 @@ router.post('/shorten', (req, res, next) => {
 
   pool.query(
     `INSERT INTO links(url, tag) VALUES($1, $2)`,
-    [fullLink, tag],
+    [link, tag],
     (err, response) => {
       if (err) return next(err)
       console.log('inserting')

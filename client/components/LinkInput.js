@@ -6,7 +6,7 @@ class LinkInput extends Component {
     super(props)
     this.state = {
       link: '',
-      protocol: 'http://',
+      protocol: 'https://',
       display: ''
     }
   }
@@ -23,18 +23,23 @@ componentDidMount = () => {
   handleClick = () => {
     let self = this;
     console.log('handle click')
-    console.log('post to back end')
-    axios.post('/shorten', { protocol: this.state.protocol, link: this.state.link})
-    .then((res)=>{
-      console.log(res)
-      let resLength = res.data.length
-      self.setState({ display: 'localhost:3000/:' + res.data[resLength - 1].tag }, () => {
-        console.log('display', self.state.display)
+    console
+      .log('post to back end')
+      // axios.post('/shorten', { protocol: this.state.protocol, link: this.state.link})
+      axios.post('/shorten', {link: this.state.link})
+      .then(res => {
+        console.log(res)
+        let resLength = res.data.length
+        self.setState(
+          { display: 'localhost:3000/' + res.data[resLength - 1].tag },
+          () => {
+            console.log('display', self.state.display)
+          }
+        )
       })
-    })
-    .catch((err)=>{
-      console.log(err)
-    })
+      .catch(err => {
+        console.log(err)
+      })
       //  axios
       //    .get('/shorten')
       //    .then(res => {
@@ -54,19 +59,20 @@ componentDidMount = () => {
 
   render() {
     return <div className="LinkInput">
-        <select name="protocol" onChange={this.handleProtocol}>
-          <option value="http">http</option>
-          <option value="https">https</option>
-        </select>
+        {/*<select name="protocol" onChange={this.handleProtocol}>
+          <option value="http">https</option>
+          <option value="https">http</option>
+        </select>*/}
         <input type="text" placeholder="enter a link to shorten" onChange={this.handleInput} />
         <button onClick={this.handleClick}>Shorten</button>
         <div>
-          <div onClick={()=>{
-            console.log('click', location.href)
-            location.href = this.state.display
-            console.log(location)
-
-          }}>{this.state.display}</div>
+          <div onClick={() => {
+              console.log('click', location.href)
+              location.href = this.state.display
+              console.log(location)
+            }}>
+            {this.state.display? <p>Here's your link: {this.state.display}</p> : null}
+          </div>
         </div>
       </div>
   }
