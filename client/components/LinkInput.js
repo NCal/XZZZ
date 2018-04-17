@@ -11,10 +11,6 @@ class LinkInput extends Component {
     }
   }
 
-componentDidMount = () => {
-
-}
-
   handleInput = e => {
     console.log(e.target.value)
     this.setState({ link: e.target.value })
@@ -41,14 +37,6 @@ componentDidMount = () => {
       .catch(err => {
         console.log(err)
       })
-      //  axios
-      //    .get('/shorten')
-      //    .then(res => {
-      //      console.log(res)
-      //    })
-      //    .catch(err => {
-      //      console.log(err)
-      //    })
   }
 
   handleProtocol = (e) => {

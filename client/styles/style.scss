@@ -9,23 +9,18 @@
 
 // GLOBAL
 html,
-body, * {
-  // background-color: salmon;
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
   color: #000;
   font-family: 'VT323', monospace;
-
-  // font-family: 'Quicksand', sans-serif;
-  // font-family: 'Montserrat Alternates', sans-serif;
-  // font-family: 'Lekton', sans-serif;
   font-weight: normal;
 }
-h3 {
-   font-family: 'VT323', monospace;
-}
 
-.main-title {
-  text-align: center;
-}
 input {
   border: 0 !important;
   color: #333 !important;
@@ -34,21 +29,27 @@ input {
   border-bottom: 1px solid #333 !important;
 }
 
+input::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #8f8f8f;
+  opacity: 1; /* Firefox */
+}
+
 input::-webkit-input-placeholder {
   /* Chrome/Opera/Safari */
-  color: #333;
+  color: #8f8f8f;
 }
 input::-moz-placeholder {
   /* Firefox 19+ */
-  color: #333;
+  color: #8f8f8f;
 }
 input:-ms-input-placeholder {
   /* IE 10+ */
-  color: #333;
+  color: #8f8f8f;
 }
 input:-moz-placeholder {
   /* Firefox 18- */
-  color: #333;
+  color: #8f8f8f;
 }
 
 a {
@@ -68,10 +69,10 @@ button {
   cursor: pointer !important;
   border-bottom: 1px solid #000;
 }
+
 // BODY CONTAINER
 .body_container {
   position: absolute;
-  // top: 70px;
   width: 100%;
   padding: 20px;
   background-color: #fff;
@@ -82,188 +83,13 @@ button {
     font-size: 20pt;
     margin-top: 30px;
     margin-bottom: 0;
-    font-family: 'VT323', monospace;
-
     text-align: center;
   }
-
-    .main-logo {
-        p {
-            font-style: italic;
-            text-align: center;
-            color: #aaa;
-            // margin-bottom: 40px;
-        }
-    }
-
 
   .content-container {
     width: 50%;
     text-align: center;
     margin: 0 auto;
     margin-top: 20px;
-
-
-    ul {
-      font-size: 10pt;
-
-    }
-    .sent-message {
-      width: 300px;
-      margin: 0 auto;
-    }
-
-    .new-user-form {
-      width: 300px;
-      text-align: center;
-      margin: 0 auto;
-
-        .submit-button {
-            padding: 10px 20px !important;
-            font-size: 14px !important;
-            background-color: #fff6d4 !important;
-            font-weight: bold !important;
-            color: #2d5d43 !important;
-            margin-top: 10px;
-            cursor: pointer !important;
-        }
-    }
-
-    .user-form {
-      margin-top: 50px;
-      width: 300px;
-      margin: 0 auto;
-
-
-      .subscribe-form {
-        ::-webkit-input-placeholder {
-          color: #aaa;
-        }
-         :-moz-placeholder {
-           color: #aaa;
-         }
-         
-         :-ms-input-placeholder {
-           color: #aaa;
-         }
-      }
-
-      .submit-button {
-        padding: 10px 20px !important;
-        margin-bottom: 10px;
-        font-size: 14px !important;
-        background-color: #fff6d4 !important;
-        font-weight: bold !important;
-        color: #2d525d !important;
-        margin-top: 20px;
-        cursor: pointer !important;
-      }
-    }
-  }
-}
-
-// HEADER
-.header {
-  height: 23px;
-  width: 100%;
-  position: absolute;
-  background-color: #272727;
-  margin-bottom: 20px;
-  top: 0;
-  left: 0;
-  text-align: left;
-
-  a {
-    margin-right: 10px;
-    cursor: pointer !important;
-  }
-}
-
-
-.profile {
-  .title {
-    font-size: 1.4em;
-  }
-}
-
-// DONATE
-
-.donate-btn {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-  cursor: pointer;
-  height: 20px;
-  width: 210px;
-}
-
-.donate {
-  font-family: 'Muli', sans-serif;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-
-
-  .bg {
-    position: absolute; 
-    top: 0;
-    left: 0;
-    background-color: #000;
-    opacity: 0.5;
-    width: 100%;
-    margin: 0 auto;
-    height: 100%;
-  }
-  
-  .modal {
-    z-index: 1;
-    h1 {
-      // font-family: 'Muli', sans-serif;
-      font-family: 'VT323', monospace;
-
-    }
-    // font-family: 'Muli', sans-serif;
-    font-family: 'VT323', monospace;
-
-    position: relative;
-    top: 100px;
-    height: 100%;
-    background-color: #fff;
-    opacity: 1;
-    width: 60%;
-    border-radius: 5px;
-    height: 80vh;
-    padding: 20px;
-    overflow: scroll;
-    margin: 0 auto;
-    text-align: center;
-
-    .close-btn {
-      position: absolute;
-      font-size: 15pt;
-      top: 0px;
-      left: 10px;
-      cursor: pointer;
-    }
-  }
-
-  h4 {
-    color: #ffd200;
-    font-style: italic;
-  }
-}
-
-input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-    color: #8f8f8f;
-    opacity: 1; /* Firefox */
-}
-
-
-@media only screen and (max-width: 570px) {
-  .donate-btn {
-    top: 27px;
-    left: 0;
   }
 }

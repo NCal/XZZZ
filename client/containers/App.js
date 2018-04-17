@@ -9,7 +9,6 @@ import LinkInput from '../components/LinkInput'
 
 import axios from 'axios'
 import { connect } from 'react-redux'
-// import NewUser from './NewUser'
 
 class App extends React.Component {
   constructor (props) {

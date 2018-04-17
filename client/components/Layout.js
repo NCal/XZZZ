@@ -12,7 +12,6 @@ export default class Layout extends React.Component {
     return <div>
       <div className="body_container">
         <h5 className="main-title">Link0Shrink</h5>
-        {/*<img src="../assets/icon.png" alt="" style={{margin: '0 auto', textAlign: 'center'}}/> */}
         {this.props.children}
       </div>
     </div>
