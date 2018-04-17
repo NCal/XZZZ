@@ -68,9 +68,9 @@ componentDidMount = () => {
         <button onClick={this.handleClick}>Shorten</button>
         <div>
           <div onClick={() => {
-              console.log('click', location.href)
-              location.href = this.state.display
-              console.log(location)
+              // console.log('click', location.href)
+              // location.href = this.state.display
+              // console.log(location)
             }}>
             {this.state.display? <p>Here's your link: {this.state.display}</p> : null}
           </div>
