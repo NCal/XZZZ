@@ -38,9 +38,9 @@ class Test extends Component {
   render() {
     return (
       <div className="Test">
-      duzntevnmatur
+      {/*duzntevnmatur
       <br/>
-      {this.state.tag}
+      {this.state.tag}*/}
       </div>
     )
   }
