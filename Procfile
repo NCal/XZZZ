@@ -1,1 +1,1 @@
-web: yarn configure
+web: yarn start
