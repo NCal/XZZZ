@@ -1,4 +1,4 @@
 node_modules
 .DS_Store
-
-
+Data/local_db_config.js
+Data/configuredb.sh
