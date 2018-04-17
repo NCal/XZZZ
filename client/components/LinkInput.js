@@ -48,6 +48,7 @@ class LinkInput extends Component {
 
   render() {
     return <div className="LinkInput">
+        <h5 className="main-title">Link0Shrink</h5>
         {/*<select name="protocol" onChange={this.handleProtocol}>
           <option value="http">https</option>
           <option value="https">http</option>
@@ -60,7 +61,9 @@ class LinkInput extends Component {
               // location.href = this.state.display
               // console.log(location)
             }}>
-            {this.state.display? <p>Here's your link: {this.state.display}</p> : null}
+            {this.state.display ? <p>
+                Here's your link: {this.state.display}
+              </p> : null}
           </div>
         </div>
       </div>

@@ -11,7 +11,6 @@ export default class Layout extends React.Component {
   render () {
     return <div>
       <div className="body_container">
-        <h5 className="main-title">Link0Shrink</h5>
         {this.props.children}
       </div>
     </div>

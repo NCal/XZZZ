@@ -5726,11 +5726,6 @@ var Layout = function (_React$Component) {
         _react2.default.createElement(
           'div',
           { className: 'body_container' },
-          _react2.default.createElement(
-            'h5',
-            { className: 'main-title' },
-            'Link0Shrink'
-          ),
           this.props.children
         )
       );
@@ -5823,6 +5818,11 @@ var LinkInput = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'LinkInput' },
+        _react2.default.createElement(
+          'h5',
+          { className: 'main-title' },
+          'Link0Shrink'
+        ),
         _react2.default.createElement('input', { type: 'text', placeholder: 'enter a link to shorten', onChange: this.handleInput }),
         _react2.default.createElement(
           'button',
