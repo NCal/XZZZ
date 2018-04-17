@@ -31,7 +31,8 @@ componentDidMount = () => {
         console.log(res)
         let resLength = res.data.length
         self.setState(
-          { display: 'localhost:3000/' + res.data[resLength - 1].tag },
+          // { display: 'localhost:3000/' + res.data[resLength - 1].tag },
+          { display: 'linkoshrink.herokuapp.com/' + res.data[resLength - 1].tag },
           () => {
             console.log('display', self.state.display)
           }
