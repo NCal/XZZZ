@@ -6,9 +6,7 @@ import '../styles/style.scss'
 import Layout from '../components/Layout'
 import Test from '../components/Test'
 import LinkInput from '../components/LinkInput'
-
 import axios from 'axios'
-import { connect } from 'react-redux'
 
 class App extends React.Component {
   constructor (props) {
@@ -35,12 +33,4 @@ class App extends React.Component {
   }
 }
 
-// redux
-const mapStateToProps = state => {
-    return {
-        user: state.user, 
-        results: state.results
-    }
-}
-
-export default connect(mapStateToProps)(App)
+export default App

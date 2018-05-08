@@ -21,13 +21,11 @@ class LinkInput extends Component {
     console.log('handle click')
     console
       .log('post to back end')
-      // axios.post('/shorten', { protocol: this.state.protocol, link: this.state.link})
       axios.post('/shorten', {link: this.state.link})
       .then(res => {
         console.log(res)
         let resLength = res.data.length
         self.setState(
-          // { display: 'localhost:3000/' + res.data[resLength - 1].tag },
           { display: 'linkoshrink.herokuapp.com/' + res.data[resLength - 1].tag },
           () => {
             console.log('display', self.state.display)
@@ -49,10 +47,6 @@ class LinkInput extends Component {
   render() {
     return <div className="LinkInput">
         <h5 className="main-title">Link0Shrink</h5>
-        {/*<select name="protocol" onChange={this.handleProtocol}>
-          <option value="http">https</option>
-          <option value="https">http</option>
-        </select>*/}
         <input type="text" placeholder="enter a link to shorten" onChange={this.handleInput} />
         <button onClick={this.handleClick}>Shorten</button>
         <div>
@@ -62,7 +56,9 @@ class LinkInput extends Component {
               // console.log(location)
             }}>
             {this.state.display ? <p>
-                Here's your link: {this.state.display}
+                Here's your link: <a href={this.state.display}>
+                  {this.state.display}
+                </a>
               </p> : null}
           </div>
         </div>
