@@ -56,7 +56,7 @@ class LinkInput extends Component {
               // console.log(location)
             }}>
             {this.state.display ? <p>
-                Here's your link: <a href={this.state.display}>
+                Here's your link: <a href={'https://'+ this.state.display} target="_blank">
                   {this.state.display}
                 </a>
               </p> : null}
