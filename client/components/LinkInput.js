@@ -26,7 +26,7 @@ class LinkInput extends Component {
         console.log(res)
         let resLength = res.data.length
         self.setState(
-          { display: 'linkoshrink.herokuapp.com/' + res.data[resLength - 1].tag },
+          { display: 'xzzz.herokuapp.com/' + res.data[resLength - 1].tag },
           () => {
             console.log('display', self.state.display)
           }
@@ -46,8 +46,8 @@ class LinkInput extends Component {
 
   render() {
     return <div className="LinkInput">
-        <h5 className="main-title">Link0Shrink</h5>
-        <input type="text" placeholder="enter a link to shorten" onChange={this.handleInput} />
+        <h5 className="main-title">Link Obfuscator</h5>
+        <input type="text" placeholder="enter a link to obfuscate" onChange={this.handleInput} />
         <button onClick={this.handleClick}>Shorten</button>
         <div>
           <div onClick={() => {
