@@ -9,9 +9,9 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "npm-run-all --parallel build watch server",
+    "start": "npm-run-all --parallel nodebuild watch server",
     "watch": "webpack-dev-server --progress --inline --hot --history-api-fallback",
-    "build": "webpack --watch",
+    "nodebuild": "webpack --watch",
     "configure": "./Data/configuredb.sh",
     "server": "nodemon \"./server/server.js\" --watch \"./server\""
   },
