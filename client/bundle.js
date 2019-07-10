@@ -4766,17 +4766,23 @@ var LinkInput = function (_Component) {
 
     _this.handleClick = function () {
       var self = _this;
-      console.log('handle click');
-      console.log('post to back end');
-      _axios2.default.post('/shorten', { link: _this.state.link }).then(function (res) {
-        console.log(res);
-        var resLength = res.data.length;
-        self.setState({ display: 'linkoshrink.herokuapp.com/' + res.data[resLength - 1].tag }, function () {
-          console.log('display', self.state.display);
+      // console.log('handle click')
+      if (_this.state.reggy.test(_this.state.link)) {
+        alert('make post call');
+        _axios2.default.post('/shorten', { link: _this.state.link }).then(function (res) {
+          console.log(res);
+          var resLength = res.data.length;
+          self.setState({
+            display: 'xzzz.herokuapp.com/' + res.data[resLength - 1].tag
+          }, function () {
+            console.log('display', self.state.display);
+          });
+        }).catch(function (err) {
+          console.log(err);
         });
-      }).catch(function (err) {
-        console.log(err);
-      });
+      } else {
+        _this.setState({ error: 'Please Enter a valid url' });
+      }
     };
 
     _this.handleProtocol = function (e) {
@@ -4789,7 +4795,9 @@ var LinkInput = function (_Component) {
     _this.state = {
       link: '',
       protocol: 'https://',
-      display: ''
+      display: '',
+      error: '',
+      reggy: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
     };
     return _this;
   }
@@ -4830,7 +4838,7 @@ var LinkInput = function (_Component) {
                 { href: 'https://' + this.state.display, target: '_blank' },
                 this.state.display
               )
-            ) : null
+            ) : this.state.error
           )
         )
       );

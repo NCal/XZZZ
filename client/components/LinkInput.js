@@ -7,7 +7,9 @@ class LinkInput extends Component {
     this.state = {
       link: '',
       protocol: 'https://',
-      display: ''
+      display: '',
+      error: '',
+      reggy: /^(?:http(s)?:\/\/)?[\w.-]+(?:\.[\w\.-]+)+[\w\-\._~:/?#[\]@!\$&'\(\)\*\+,;=.]+$/
     }
   }
 
@@ -18,23 +20,29 @@ class LinkInput extends Component {
 
   handleClick = () => {
     let self = this;
-    console.log('handle click')
-    console
-      .log('post to back end')
-      axios.post('/shorten', {link: this.state.link})
-      .then(res => {
-        console.log(res)
-        let resLength = res.data.length
-        self.setState(
-          { display: 'xzzz.herokuapp.com/' + res.data[resLength - 1].tag },
-          () => {
-            console.log('display', self.state.display)
-          }
-        )
-      })
-      .catch(err => {
-        console.log(err)
-      })
+    // console.log('handle click')
+    if (this.state.reggy.test(this.state.link)){
+      alert('make post call');
+            axios
+        .post('/shorten', { link: this.state.link })
+        .then(res => {
+          console.log(res);
+          let resLength = res.data.length;
+          self.setState(
+            {
+              display: 'xzzz.herokuapp.com/' + res.data[resLength - 1].tag
+            },
+            () => {
+              console.log('display', self.state.display);
+            }
+          );
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    } else {
+      this.setState({error: 'Please Enter a valid url'})
+    }
   }
 
   handleProtocol = (e) => {
@@ -59,7 +67,7 @@ class LinkInput extends Component {
                 Here's your link: <a href={'https://'+ this.state.display} target="_blank">
                   {this.state.display}
                 </a>
-              </p> : null}
+              </p> : this.state.error}
           </div>
         </div>
       </div>
